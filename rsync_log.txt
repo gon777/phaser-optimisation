@@ -1,0 +1,17 @@
+2022/05/09 16:38:40 [1162] building file list
+2022/05/09 16:38:40 [1162] done
+2022/05/09 16:38:40 [1162] created directory ./pre_build/assets
+2022/05/09 16:38:40 [1162] ===send===./===
+2022/05/09 16:38:40 [1162] ===send===main.js===
+2022/05/09 16:38:40 [1162] ===send===client/===
+2022/05/09 16:38:40 [1162] ===send===client/components/===
+2022/05/09 16:38:40 [1162] ===send===client/components/PreloadText.js===
+2022/05/09 16:38:40 [1162] ===send===client/components/PushOnClick.js===
+2022/05/09 16:38:40 [1162] ===send===client/components/UserComponent.js===
+2022/05/09 16:38:40 [1162] ===send===client/scenes/===
+2022/05/09 16:38:40 [1162] ===send===client/scenes/Level.js===
+2022/05/09 16:38:40 [1162] ===send===client/scenes/Preload.js===
+2022/05/09 16:38:40 [1162] ===send===client/workers/===
+2022/05/09 16:38:40 [1162] ===send===client/workers/PathFinder.js===
+2022/05/09 16:38:40 [1162] sent 7.04K bytes  received 205 bytes  14.49K bytes/sec
+2022/05/09 16:38:40 [1162] total size is 6.34K  speedup is 0.88

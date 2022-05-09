@@ -1,0 +1,50 @@
+{
+  "name": "starter-template-basic-javascript",
+  "version": "1.0.0",
+  "description": "Basic JavaScript project template for Phaser Editor 2D.",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "fs-extra": "^10.0.0",
+    "grunt": "^1.5.2",
+    "grunt-babel": "^8.0.0",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-obfuscator": "^8.0.0",
+    "grunt-contrib-symlink": "^1.0.0",
+    "grunt-contrib-watch": "*",
+    "grunt-develop": "*",
+    "grunt-http-server": "*",
+    "grunt-http-upload": "^0.3.2",
+    "grunt-javascript-obfuscator": "^1.2.0",
+    "grunt-rsync": "^3.0.0",
+    "grunt-text-replace": "^0.4.0",
+    "phasereditor2d-launcher": "^3.32.0",
+    "sourcemap-validator": "^2.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "editor": "phasereditor2d-launcher -project . -port 1959",
+    "editor-remote": "phasereditor2d-launcher -project . -disable-open-browser -public -port 1959"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhaserEditor2D/starter-template-basic-javascript.git"
+  },
+  "keywords": [
+    "phaser",
+    "phasereditor2d",
+    "html5",
+    "video-game"
+  ],
+  "author": "Arian Fornaris <developers@phasereditor2d.com> (https://phasereditor2d.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PhaserEditor2D/starter-template-basic-javascript/issues"
+  },
+  "homepage": "https://github.com/PhaserEditor2D/starter-template-basic-javascript#readme"
+}
