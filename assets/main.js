@@ -1,7 +1,7 @@
-
+var game;
 window.addEventListener('load', function () {
 
-	var game = new Phaser.Game({
+	game = new Phaser.Game({
 		width: 800,
 		height: 600,
 		type: Phaser.AUTO,
@@ -17,21 +17,21 @@ window.addEventListener('load', function () {
 		}
 	});
 	
-	game.scene.add("Preload", Preload);
-	game.scene.add("Level", Level);
+	// game.scene.add("Preload", Preload);
+	// game.scene.add("Level", Level);
 	game.scene.add("Boot", Boot, true);
-
-	// console.log(game);
-	// console.log(PhaserWebWorkers);
-	// debugger;
-	// console.log(PhaserWebWorkers.Plugin);
-	// game.add.plugin(PhaserWebWorkers.Plugin);
+	// game.scene.add("PathFindingTest", PathFindingTest);
 });
 
 class Boot extends Phaser.Scene {
 
 	preload() {
-		this.load.pack("pack", "assets/content/preload-asset-pack.json");
-		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("Preload"));
+		// this.load.pack("pack", "assets/content/preload-asset-pack.json");
+		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("Preload"));
+		this.load.sceneFile('PathFindingTest','assets/client/scenes/PathFindingTest.js');
+		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("PathFindingTest"));
 	}
+
+
+
 }
