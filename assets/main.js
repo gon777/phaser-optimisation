@@ -1,4 +1,6 @@
 var game;
+// var easyStar = new EasyStar.js();
+
 window.addEventListener('load', function () {
 
 	game = new Phaser.Game({

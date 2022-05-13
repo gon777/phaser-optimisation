@@ -21,10 +21,15 @@ class PathFindingTest extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
-
+	MAP_WIDTH = 50;
+	MAP_HEIGHT = 50;
 	TILE_WIDTH = 10;
 	TILE_HEIGHT = 10;
 	maze = [];
+
+
+	REQUEST_PER_INTERVAL = 400;
+	INTERVAL_LENGTH = 100; //ms
 
 	easyStar = null;
 
@@ -32,12 +37,89 @@ class PathFindingTest extends Phaser.Scene {
 
 		this.editorCreate();
 
+		//worker
+		let pathFindingWorkers = [];
+		let numCores = 7;
+		let workerIndex = 0;
+		for(let i=0; i<numCores; i++){
+			let temp  = new Worker('assets/client/workers/PathFinder.js');
+			temp.onmessage = (e) =>{
+				// console.log(e.data);
+				completed ++;
+				statusText.setText(`${requested}/${completed}, diff: ${requested - completed - this.REQUEST_PER_INTERVAL}`);
+			}
+			pathFindingWorkers.push(temp);
+		}
+
+		// let pathFindingWorker = new Worker('assets/client/workers/PathFinder.js');
+		// pathFindingWorker.onmessage = (e) =>{
+		// 	console.log(e.data);
+		// 	completed ++;
+		// 	statusText.setText(`${requested}/${completed}, diff: ${requested - completed - this.REQUEST_PER_INTERVAL}`);
+		// }
+
 		//map creation
-		let data = this.generateMap(50, 50);
+		let data = this.generateMap(this.MAP_WIDTH, this.MAP_HEIGHT);
 		let mapData = data.mapData;
 		let mazeWalkable = data.walkable;
 		let mazeNonWalkable = data.nonWalkable;
 		this.createMaze(mapData);
+
+		//UI
+		let tile = undefined;
+		let isRunning = false;
+		let interval = undefined;
+		let requested = 0;
+		let completed = 0;
+		let conditionText = this.add.text(500, 50, 'condition');
+		let statusText = this.add.text(500, 100, 'status');
+		this.add.text(500, 0, 'Start').setInteractive().on('pointerdown', () => {
+			if (!isRunning) {
+				conditionText.setText(`worker=${numCores},${(1000 / this.INTERVAL_LENGTH) * this.REQUEST_PER_INTERVAL} requests per second`);
+				isRunning = true;
+
+				//set up workers
+				for(let i=0; i<pathFindingWorkers.length; i++){
+					pathFindingWorkers[i].postMessage({
+						command: 'set',
+						mapData: mapData,
+						wokerID: i,
+					});
+				}
+
+				//worker interval
+				interval = setInterval(() => {
+					//web worker
+					// for(let i=0; i<this.REQUEST_PER_INTERVAL; i++){
+					// 	requested ++;
+					// 	tile = mazeWalkable[Math.floor(Math.random() * mazeWalkable.length)];
+					// 	pathFindingWorkers[workerIndex].postMessage({
+					// 		command: 'find',
+					// 		start: {x: 0, y: 0},
+					// 		end: {x: tile.x, y: tile.y},
+					// 	});
+					// 	workerIndex = (workerIndex + 1) % numCores;
+						// console.log(workerIndex);
+					// }
+
+					// regular
+					for(let i=0; i<this.REQUEST_PER_INTERVAL; i++){
+						requested ++;
+						tile = mazeWalkable[Math.floor(Math.random() * mazeWalkable.length)];
+						this.easyStar.findPath(0, 0, tile.x, tile.y, (p) => {
+							completed ++;
+						});
+						this.easyStar.calculate();
+						statusText.setText(`${requested}/${completed}, diff: ${requested - completed - this.REQUEST_PER_INTERVAL}`);
+					}
+				}, this.INTERVAL_LENGTH);
+			}
+		});
+		this.add.text(500, 25, 'Stop').setInteractive().on('pointerdown', () => {
+			isRunning = false;
+			// pathFindingWorker.terminate();
+			clearInterval(interval);
+		});
 
 
 		//path finding
@@ -51,38 +133,13 @@ class PathFindingTest extends Phaser.Scene {
 
 		console.log(mazeWalkable);
 
-		//keyboard event
-		let tile = undefined;
-		let wKey = this.input.keyboard.addKey('W');
-		let isRunning = false;
-		let interval = undefined;
-		let requested = 0;
-		let completed = 0;
-		wKey.on('down', (event) => {
-			if (!isRunning) {
-				isRunning = true;
-				interval = setInterval(() => {
-					for(let i=0; i<100; i++){
-						requested ++;
-						tile = mazeWalkable[Math.floor(Math.random() * mazeWalkable.length)];
-						this.easyStar.findPath(0, 0, tile.x, tile.y, (p) => {
-							// console.log(p)
-							completed ++;
-						});
-						this.easyStar.calculate();
-						console.log(`${requested}/${completed}, diff: ${requested - completed}`);
-					}
-				}, 10)
-			} else {
-				clearInterval(interval);
-			}
-		})
-
 		//mouse event
 		this.input.on('pointerdown', (pointer) => {
-			console.log(pointer.x, pointer.y);
-			console.log();
+			// console.log(pointer.x, pointer.y);
+			// console.log();
 			let tile = this.screenToTile(pointer.x, pointer.y);
+			if (tile.x >= this.MAP_WIDTH) return;
+			if (tile.y >= this.MAP_HEIGHT) return;
 			this.easyStar.findPath(0, 0, tile.x, tile.y, (p) => {
 				console.log(p)
 			});
@@ -110,23 +167,6 @@ class PathFindingTest extends Phaser.Scene {
 			}
 			mapData.push(row);
 		}
-		// let mapData = [
-		// 	[0, 1, 0, 0, 0, 0, 1, 1, 0],
-		// 	[0, 1, 0, 0, 0, 0, 0, 0, 0],
-		// 	[0, 1, 0, 0, 0, 0, 0, 0, 0],
-		// 	[0, 0, 0, 0, 1, 0, 0, 0, 0],
-		// 	[0, 0, 0, 0, 1, 0, 0, 0, 0],
-		// ];
-		// let walkable = [];
-		// let nonWalkable = [];
-		// for(let y=0; y<mapData.length; y++){
-		// 	for(let x=0; x<mapData[0].length; x++){
-		// 		if(mapData[y][x] == 0)
-		// 			walkable.push({x: x, y:y});
-		// 		else if(mapData[y][x] == 1)
-		// 			nonWalkable.push({x: x, y:y});
-		// 	}
-		// }
 		return {
 			mapData: mapData,
 			walkable: walkable,
