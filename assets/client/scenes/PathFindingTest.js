@@ -21,15 +21,16 @@ class PathFindingTest extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
-	MAP_WIDTH = 50;
-	MAP_HEIGHT = 50;
-	TILE_WIDTH = 10;
-	TILE_HEIGHT = 10;
+	MAP_WIDTH = 100;
+	MAP_HEIGHT = 100;
+	TILE_WIDTH = 5;
+	TILE_HEIGHT = 5;
 	maze = [];
 
 
-	REQUEST_PER_INTERVAL = 400;
-	INTERVAL_LENGTH = 100; //ms
+	REQUEST_PER_INTERVAL = 200;
+	INTERVAL_LENGTH = 1000; //ms
+	THREADS = 3;
 
 	easyStar = null;
 
@@ -37,16 +38,31 @@ class PathFindingTest extends Phaser.Scene {
 
 		this.editorCreate();
 
+		if (!window.Worker) {
+			console.error('WORKER NOT AVAILABLE');
+		}
+
+		let startWork = 0;
+		let endWork = 0;
+		let totalTime = 0;
+		let totalCount = 0;
+
 		//worker
 		let pathFindingWorkers = [];
-		let numCores = 7;
+		let numThreads = this.THREADS;
 		let workerIndex = 0;
-		for(let i=0; i<numCores; i++){
-			let temp  = new Worker('assets/client/workers/PathFinder.js');
-			temp.onmessage = (e) =>{
-				// console.log(e.data);
-				completed ++;
-				statusText.setText(`${requested}/${completed}, diff: ${requested - completed - this.REQUEST_PER_INTERVAL}`);
+		for (let i = 0; i < numThreads; i++) {
+			let temp = new Worker('assets/client/workers/PathFinder.js');
+			temp.onmessage = (e) => {
+				completed++;
+				statusText.setText(`${requested}/${completed}, diff: ${requested - completed}`);
+				if (completed == requested) {
+					endWork = window.performance.now();
+					let timeDiff = endWork - startWork;
+					console.log(timeDiff);
+					totalTime += timeDiff;
+					console.log(`avg time:${totalTime / totalCount}`);
+				}
 			}
 			pathFindingWorkers.push(temp);
 		}
@@ -75,11 +91,11 @@ class PathFindingTest extends Phaser.Scene {
 		let statusText = this.add.text(500, 100, 'status');
 		this.add.text(500, 0, 'Start').setInteractive().on('pointerdown', () => {
 			if (!isRunning) {
-				conditionText.setText(`worker=${numCores},${(1000 / this.INTERVAL_LENGTH) * this.REQUEST_PER_INTERVAL} requests per second`);
+				conditionText.setText(`worker=${numThreads},${(1000 / this.INTERVAL_LENGTH) * this.REQUEST_PER_INTERVAL} rps`);
 				isRunning = true;
 
 				//set up workers
-				for(let i=0; i<pathFindingWorkers.length; i++){
+				for (let i = 0; i < pathFindingWorkers.length; i++) {
 					pathFindingWorkers[i].postMessage({
 						command: 'set',
 						mapData: mapData,
@@ -89,35 +105,53 @@ class PathFindingTest extends Phaser.Scene {
 
 				//worker interval
 				interval = setInterval(() => {
-					//web worker
-					// for(let i=0; i<this.REQUEST_PER_INTERVAL; i++){
-					// 	requested ++;
-					// 	tile = mazeWalkable[Math.floor(Math.random() * mazeWalkable.length)];
-					// 	pathFindingWorkers[workerIndex].postMessage({
-					// 		command: 'find',
-					// 		start: {x: 0, y: 0},
-					// 		end: {x: tile.x, y: tile.y},
-					// 	});
-					// 	workerIndex = (workerIndex + 1) % numCores;
-						// console.log(workerIndex);
-					// }
+					// console.time('work');
+					startWork = window.performance.now();
+					totalCount++;
 
 					// regular
-					for(let i=0; i<this.REQUEST_PER_INTERVAL; i++){
-						requested ++;
-						tile = mazeWalkable[Math.floor(Math.random() * mazeWalkable.length)];
-						this.easyStar.findPath(0, 0, tile.x, tile.y, (p) => {
-							completed ++;
-						});
-						this.easyStar.calculate();
-						statusText.setText(`${requested}/${completed}, diff: ${requested - completed - this.REQUEST_PER_INTERVAL}`);
+					if (numThreads == 0) {
+						for (let i = 0; i < this.REQUEST_PER_INTERVAL; i++) {
+							requested++;
+							tile = mazeWalkable[Math.floor(Math.random() * mazeWalkable.length)];
+							statusText.setText(`${requested}/${completed}, diff: ${requested - completed}`);
+							this.easyStar.findPath(0, 0, tile.x, tile.y, (p) => {
+								completed++;
+								statusText.setText(`${requested}/${completed}, diff: ${requested - completed}`);
+
+								if (completed == requested) {
+									// console.timeEnd('work');
+									endWork = window.performance.now();
+									let timeDiff = endWork - startWork;
+									console.log(timeDiff);
+									totalTime += timeDiff;
+									console.log(`avg time:${totalTime / totalCount}`);
+								}
+							});
+							this.easyStar.calculate();
+						}
+					}
+					//web worker
+					else {
+						for (let i = 0; i < this.REQUEST_PER_INTERVAL; i++) {
+							requested++;
+							tile = mazeWalkable[Math.floor(Math.random() * mazeWalkable.length)];
+							pathFindingWorkers[workerIndex].postMessage({
+								command: 'find',
+								start: {x: 0, y: 0},
+								end: {x: tile.x, y: tile.y},
+							});
+							workerIndex = (workerIndex + 1) % numThreads;
+						}
 					}
 				}, this.INTERVAL_LENGTH);
 			}
 		});
 		this.add.text(500, 25, 'Stop').setInteractive().on('pointerdown', () => {
 			isRunning = false;
-			// pathFindingWorker.terminate();
+			for (let i = 0; i < pathFindingWorkers.length; i++) {
+				pathFindingWorkers[i].terminate();
+			}
 			clearInterval(interval);
 		});
 
@@ -148,7 +182,7 @@ class PathFindingTest extends Phaser.Scene {
 	}
 
 	generateMap(width, height) {
-		let NON_WALKABLE_CHANCE = 0.2;
+		let NON_WALKABLE_CHANCE = 0.3;
 		let chance = 0;
 		let mapData = [];
 		let walkable = [];
