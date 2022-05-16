@@ -2,7 +2,7 @@ if('undefined' === typeof window)
 {
 	importScripts('../../../lib/easystar-0.4.4.min.js');
 }
-// {
+{
 	let easyStar = new EasyStar.js();
 	let workerID = 0;
 
@@ -30,4 +30,4 @@ if('undefined' === typeof window)
 		}
 
 	}
-// }
+}

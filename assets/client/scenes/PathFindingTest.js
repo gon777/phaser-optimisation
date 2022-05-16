@@ -28,9 +28,9 @@ class PathFindingTest extends Phaser.Scene {
 	maze = [];
 
 
-	REQUEST_PER_INTERVAL = 200;
+	REQUEST_PER_INTERVAL = 1000;
 	INTERVAL_LENGTH = 1000; //ms
-	THREADS = 3;
+	THREADS = 2;
 
 	easyStar = null;
 
