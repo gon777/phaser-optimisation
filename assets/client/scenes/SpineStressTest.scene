@@ -1,0 +1,28 @@
+{
+    "id": "f92f1811-50a4-4dbb-92b1-94301c7fad34",
+    "sceneType": "SCENE",
+    "settings": {
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "SpineStressTest"
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "e41475b3-a6e4-4b46-8429-fcc4c7352dbe",
+            "label": "hihihi",
+            "components": [],
+            "x": 561,
+            "y": 350,
+            "originX": 0,
+            "originY": 0,
+            "text": "New text"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}
