@@ -25,6 +25,43 @@ window.addEventListener('load', function () {
 	// game.scene.add("PathFindingTest", PathFindingTest);
 });
 
+
+// patch SpineGameObject for phaser3.55.2, if you place spine game object in a container these two functions are required
+/*
+window.SpinePlugin.SpineGameObject.prototype.addToDisplayList = function(displayList) {
+	if(displayList === undefined) {
+		displayList = this.scene.sys.displayList;
+	}
+
+	if(this.displayList && this.displayList !== displayList) {
+		this.removeFromDisplayList();
+	}
+
+	//  Don't repeat if it's already on this list
+	if(!displayList.exists(this)) {
+		this.displayList = displayList;
+		displayList.add(this, true);
+		displayList.queueDepthSort();
+	}
+
+	return this;
+};
+window.SpinePlugin.SpineGameObject.prototype.removeFromDisplayList = function() {
+	var displayList = this.displayList || this.scene.sys.displayList;
+
+	if(displayList.exists(this)) {
+		displayList.remove(this, true);
+		displayList.queueDepthSort();
+		this.displayList = null;
+
+		// this.emit(Events.REMOVED_FROM_SCENE, this, this.scene);
+		// displayList.events.emit(SceneEvents.REMOVED_FROM_SCENE, this, this.scene);
+	}
+
+	return this;
+};
+*/
+
 class Boot extends Phaser.Scene {
 
 	preload() {

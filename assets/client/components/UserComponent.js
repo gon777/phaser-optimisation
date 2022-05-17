@@ -56,8 +56,4 @@ class UserComponent {
     update() {
         // override this
     }
-
-    destroy() {
-        // override this
-    }
 }
