@@ -1,0 +1,27 @@
+{
+    "id": "246c71ea-abe8-4895-b1c4-e805c94293db",
+    "sceneType": "SCENE",
+    "settings": {
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "BotOptimisationTest"
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "e522623e-580a-4d5a-b453-f7256bf48a78",
+            "label": "text_1",
+            "components": [],
+            "x": 444,
+            "y": 240,
+            "text": "New text"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}
