@@ -61,6 +61,66 @@ window.SpinePlugin.SpineGameObject.prototype.removeFromDisplayList = function() 
 	return this;
 };
 */
+window.SpinePlugin.SpineGameObject.prototype.destroy = function() {
+	//  This Game Object has already been destroyed
+	if (!this.scene || this.ignoreDestroy)
+	{
+		return;
+	}
+
+	if (this.preDestroy)
+	{
+		this.preDestroy.call(this);
+	}
+
+	this.emit(Phaser.Events.DESTROY, this);
+
+	this.removeAllListeners();
+
+	if (this.postPipelines)
+	{
+		this.resetPostPipeline(true);
+	}
+
+	if (this.displayList)
+	{
+		this.displayList.queueDepthSort();
+		this.displayList.remove(this);
+	}
+
+	if (this.preUpdate)
+	{
+		this.scene.sys.updateList.remove(this);
+	}
+
+	if (this.input)
+	{
+		this.scene.sys.input.clear(this);
+
+		this.input = undefined;
+	}
+
+	if (this.data)
+	{
+		this.data.destroy();
+
+		this.data = undefined;
+	}
+
+	if (this.body)
+	{
+		this.body.destroy();
+
+		this.body = undefined;
+	}
+
+	this.active = false;
+	this.visible = false;
+
+	this.scene = undefined;
+	this.displayList = undefined;
+	this.parentContainer = undefined;
+};
 
 class Boot extends Phaser.Scene {
 

@@ -25,7 +25,8 @@ if('undefined' === typeof window)
 				easyStar.calculate();
 				break;
 			default:
-				console.error('a');
+				console.error('error');
+				console.error(e);
 				break;
 		}
 

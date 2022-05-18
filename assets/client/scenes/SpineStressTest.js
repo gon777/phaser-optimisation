@@ -123,9 +123,26 @@ class SpineStressTest extends Phaser.Scene {
 		this.uiContainer.add(setVisibleOutScreenText);
 		this.uiContainer.add(setInvisibleOutScreenText);
 
+		let restartScene = this.add.text(1000, 25, 'RESTART', {fontSize: `24px`, color: `#f00`})
+			.setInteractive({useHandCursor: true})
+			.on('pointerdown', () => {
+				this.restartScene();
+			});
+		this.uiContainer.add(restartScene);
+
 		//memory
 		this.usedHeapText = this.add.text(1000, 200, '?', {fontSize: `24px`, color: `#f00`});
 		this.totalHeapText = this.add.text(1000, 225, '?', {fontSize: `24px`, color: `#f00`});
+		this.uiContainer.add(this.usedHeapText);
+		this.uiContainer.add(this.totalHeapText);
+
+		//zoom
+		this.input.keyboard.addKey('Q').on('down', ()=>{
+			this.cameras.main.setZoom(1);
+		});
+		this.input.keyboard.addKey('E').on('down', ()=>{
+			this.cameras.main.setZoom(0.1);
+		});
 	}
 
 	update(){
@@ -133,14 +150,17 @@ class SpineStressTest extends Phaser.Scene {
 		this.totalHeapText.setText(`${performance.memory.totalJSHeapSize / Math.pow(1000, 2)} MB`);
 	}
 
+	/****************
+	 * In Screen
+	 * *************
+	 */
 	spawnInScreenBlobble() {
 		for (let i = 0; i < 10; i++) {
 			let spawnX = 1520 / 2 + (Math.random() * 1520 - (1520 / 2 - 50));
 			let spawnY = 960 / 2 + (Math.random() * 960 - (960 / 2 - 50));
 			let temp = this.add.spine(spawnX, spawnY, 'blobble', 'world_idle_animation', true);
 			temp.setSkinByName(`default_1`);
-			//
-			// let temp = this.add.image(spawnX, spawnY, 'dino');
+			// let temp = this.add.sprite(spawnX, spawnY, 'dino');
 			this.inScreenBlobbles.push(temp);
 			this.blobbleContainer.add(temp);
 		}
@@ -160,10 +180,7 @@ class SpineStressTest extends Phaser.Scene {
 		let length = this.inScreenBlobbles.length;
 		for (let i = 0; i < length; i++) {
 			let temp = this.inScreenBlobbles.pop();
-			temp.setActive(false);
-			temp.setVisible(false);
-			this.blobbleContainer.remove(temp, false);
-			temp.destroy();
+			this.blobbleContainer.remove(temp, true);
 		}
 		this.inScreenText.setText(`IN-SCREEN: ${this.inScreenBlobbles.length}`);
 	}
@@ -180,15 +197,16 @@ class SpineStressTest extends Phaser.Scene {
 		}
 	}
 
+	/******************
+	 * Out Screen
+	 * **************
+	 */
 	spawnOutOfScreenBlobble() {
 		for (let i = 0; i < 10; i++) {
 			let spawnX = (Math.random() > 0.5 ? 1 : -1) * (1520 + 50 + Math.random() * 1000);
 			let spawnY = (Math.random() > 0.5 ? 1 : -1) * (960 + 50 + Math.random() * 1000);
-			// let temp = this.add.spine(spawnX, spawnY, 'blobble', 'world_idle_animation', true);
-			// temp.setSkinByName(`default_1`);
-
-			let temp = this.add.image(spawnX, spawnY, 'dino');
-
+			let temp = this.add.spine(spawnX, spawnY, 'blobble', 'world_idle_animation', true);
+			temp.setSkinByName(`default_1`);
 			this.outOfScreenBlobbles.push(temp);
 			this.blobbleContainer.add(temp);
 		}
@@ -222,10 +240,18 @@ class SpineStressTest extends Phaser.Scene {
 
 	toggleOutScreenVisible(isVisible) {
 		for (let i = 0; i < this.outOfScreenBlobbles.length; i++) {
-			this.outOfScreenBlobbles[i].setActive(isVisible);
+			this.outOfScreenBlobbles[i].setVisible(isVisible);
 		}
 	}
 
+	/********************
+	 * Other
+	 * **************
+	 */
+	restartScene(){
+		// this.scene.stop('SpineStressTest');
+		this.scene.restart();
+	}
 
 	/* END-USER-CODE */
 }
