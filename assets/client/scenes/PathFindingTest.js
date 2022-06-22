@@ -28,9 +28,9 @@ class PathFindingTest extends Phaser.Scene {
 	maze = [];
 
 
-	REQUEST_PER_INTERVAL = 1000;
+	REQUEST_PER_INTERVAL = 2000;
 	INTERVAL_LENGTH = 1000; //ms
-	THREADS = 2;
+	THREADS = 1;
 
 	easyStar = null;
 
@@ -49,7 +49,7 @@ class PathFindingTest extends Phaser.Scene {
 
 		//worker
 		let pathFindingWorkers = [];
-		let numThreads = this.THREADS;
+		let numThreads = navigator.hard;this.THREADS;
 		let workerIndex = 0;
 		for (let i = 0; i < numThreads; i++) {
 			let temp = new Worker('assets/client/workers/PathFinder.js');

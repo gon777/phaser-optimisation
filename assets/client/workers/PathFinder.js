@@ -10,7 +10,7 @@ if('undefined' === typeof window)
 		// console.log(`Message Received`);
 		// console.log(e.data);
 		// console.log(easyStar);
-
+debugger;
 		switch (e.data.command) {
 			case 'set':
 				easyStar.setGrid(e.data.mapData);

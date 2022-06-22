@@ -1,0 +1,144 @@
+{
+    "id": "1321d56f-ec23-4673-b889-d19331097a30",
+    "sceneType": "SCENE",
+    "settings": {
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "TilemapScene",
+        "borderWidth": 1520,
+        "borderHeight": 960
+    },
+    "displayList": [
+        {
+            "type": "TilemapLayer",
+            "id": "e75498d5-ff3e-4686-b99b-9383538e7d2f",
+            "label": "foundation_1",
+            "scope": "CLASS",
+            "components": [],
+            "tilemapId": "0f5e7b04-0815-4a9f-b735-a1362c51ac6b",
+            "layerName": "Foundation",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "955fd23a-e910-476b-b6b7-49dd0d308f69",
+            "label": "floorBelowPlayer",
+            "components": [],
+            "tilemapId": "0f5e7b04-0815-4a9f-b735-a1362c51ac6b",
+            "layerName": "FloorBelowPlayer",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "5c7a55c6-fe6d-4e2f-9100-930863fb913c",
+            "label": "floorAbovePlayer",
+            "components": [],
+            "tilemapId": "0f5e7b04-0815-4a9f-b735-a1362c51ac6b",
+            "layerName": "FloorAbovePlayer",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "bbfd695f-ddc6-48a0-b62e-6358f177f313",
+            "label": "clutter",
+            "components": [],
+            "tilemapId": "0f5e7b04-0815-4a9f-b735-a1362c51ac6b",
+            "layerName": "clutter",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "f7bb9d3a-054e-4903-809b-7c382853536f",
+            "label": "obstacles",
+            "components": [],
+            "tilemapId": "0f5e7b04-0815-4a9f-b735-a1362c51ac6b",
+            "layerName": "Obstacles",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "a7be1f38-45e1-47f4-aff8-7427d3aa0a46",
+            "label": "treesUpper",
+            "components": [],
+            "tilemapId": "0f5e7b04-0815-4a9f-b735-a1362c51ac6b",
+            "layerName": "TreesUpper",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "261d85ad-e3dc-4e99-a5bf-2d39539c1f71",
+            "label": "treesAbovePlayer",
+            "components": [],
+            "tilemapId": "0f5e7b04-0815-4a9f-b735-a1362c51ac6b",
+            "layerName": "TreesAbovePlayer",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "ce5e688a-94b5-4642-8554-fc1e1fae911b",
+            "label": "image",
+            "components": [],
+            "texture": {
+                "key": "dino"
+            },
+            "x": 798,
+            "y": 501
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "b02bf3f3-bb4d-4b20-9c5e-67018d368644",
+            "type": "Tilemap",
+            "label": "testTilemapLayer",
+            "key": "testTilemapLayer",
+            "tilesets": [
+                {
+                    "name": "testTileset",
+                    "imageKey": "testTileset"
+                }
+            ]
+        },
+        {
+            "id": "0f5e7b04-0815-4a9f-b735-a1362c51ac6b",
+            "type": "Tilemap",
+            "label": "cobblewood",
+            "key": "Cobblewood",
+            "tilesets": [
+                {
+                    "name": "forest_medium",
+                    "imageKey": "testTileset"
+                },
+                {
+                    "name": "forest_large",
+                    "imageKey": "largeForest1"
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

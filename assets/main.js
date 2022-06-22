@@ -27,7 +27,6 @@ window.addEventListener('load', function () {
 
 
 // patch SpineGameObject for phaser3.55.2, if you place spine game object in a container these two functions are required
-/*
 window.SpinePlugin.SpineGameObject.prototype.addToDisplayList = function(displayList) {
 	if(displayList === undefined) {
 		displayList = this.scene.sys.displayList;
@@ -60,7 +59,6 @@ window.SpinePlugin.SpineGameObject.prototype.removeFromDisplayList = function() 
 
 	return this;
 };
-*/
 window.SpinePlugin.SpineGameObject.prototype.destroy = function() {
 	//  This Game Object has already been destroyed
 	if (!this.scene || this.ignoreDestroy)
@@ -125,7 +123,7 @@ window.SpinePlugin.SpineGameObject.prototype.destroy = function() {
 class Boot extends Phaser.Scene {
 
 	preload() {
-		// this.load.pack("pack", "assets/content/preload-asset-pack.json");
+		this.load.pack("pack", "assets/content/preload-asset-pack.json");
 		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("Preload"));
 
 		// this.load.sceneFile('PathFindingTest','assets/client/scenes/PathFindingTest.js');
@@ -133,6 +131,12 @@ class Boot extends Phaser.Scene {
 
 		this.load.sceneFile('SpineStressTest','assets/client/scenes/SpineStressTest.js');
 		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("SpineStressTest"));
+
+		// this.load.sceneFile('BotOptimisationTest','assets/client/scenes/BotOptimisationTest.js');
+		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("BotOptimisationTest"));
+
+		// this.load.sceneFile('TilemapScene','assets/client/scenes/TilemapScene.js');
+		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("TilemapScene"));
 	}
 
 
