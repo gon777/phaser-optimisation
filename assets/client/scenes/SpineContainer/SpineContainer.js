@@ -81,6 +81,15 @@ class SpineContainer extends Phaser.Scene {
 			})
 		this.uiContainer.add(spineEntityText);
 
+		//pet battle entity (double container)
+		this.petBattleEntityContainer = [];
+		let petBattleEntityText = this.add.text(100, 150, 'pet battle entity (double container)', this.FONT)
+			.setInteractive({useHandCursor: true})
+			.on('pointerdown', () => {
+				this.spawnPetBattleEntity();
+			})
+		this.uiContainer.add(petBattleEntityText);
+
 		//
 		for(let i=0; i<this.uiContainer.list.length; i++){
 			this.uiContainer.list[i].setPosition(100, 100 + 50 * i);
@@ -129,10 +138,9 @@ class SpineContainer extends Phaser.Scene {
 			//
 			this.spineSpineContainers.push(tempContainer);
 		}
-		console.log(`Spine Regular Container: ${this.spineSpineContainers.length}`);
+		console.log(`Spine Container: ${this.spineSpineContainers.length}`);
 	}
 
-	//
 	spawnSpineEntity(){
 		for(let i=0; i<10; i++){
 			let spawnX = 1520 / 2 + (Math.random() * 1520 -  1520)/2 ;
@@ -143,7 +151,20 @@ class SpineContainer extends Phaser.Scene {
 			//
 			this.spineEntityContainer.push(temp);
 		}
-		console.log(`Spine Regular Container: ${this.spineEntityContainer.length}`);
+		console.log(`Spine Entity: ${this.spineEntityContainer.length}`);
+	}
+
+	spawnPetBattleEntity(){
+		for(let i=0; i<10; i++){
+			let spawnX = Math.random() * 1520 / 4;
+			let spawnY = Math.random() * 960 /4;
+			let temp = new PetBattleEntity(this, spawnX, spawnY);
+			this.entitySpineContainer.add(temp);
+
+			//
+			this.petBattleEntityContainer.push(temp);
+		}
+		console.log(`Pet battle Entity: ${this.petBattleEntityContainer.length}`);
 	}
 
 	
@@ -154,6 +175,14 @@ class SpineContainer extends Phaser.Scene {
 
 // You can write more code here
 
+class PetBattleEntity extends SpinePlugin.SpineContainer{
+	constructor(scene, x, y) {
+		super(scene, scene.spine, x, y);
+		let temp = new SpineEntity(scene, x, y);
+		this.add(temp);
+	}
+}
+
 class SpineEntity extends SpinePlugin.SpineContainer{
 
 	constructor(scene, x, y) {
@@ -161,5 +190,8 @@ class SpineEntity extends SpinePlugin.SpineContainer{
 		let temp = this.scene.add.spine(x, y, 'blobble', 'world_idle_animation', true);
 		temp.setSkinByName(`default_1`);
 		this.add(temp);
+
+		// let dino = this.scene.add.sprite(x, y, 'dino');
+		// this.add(dino);
 	}
 }
