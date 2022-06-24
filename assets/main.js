@@ -1,4 +1,5 @@
-var game;
+let game;
+let fpsmeter;
 // var easyStar = new EasyStar.js();
 
 window.addEventListener('load', function () {
@@ -23,6 +24,30 @@ window.addEventListener('load', function () {
 	// game.scene.add("Level", Level);
 	game.scene.add("Boot", Boot, true);
 	// game.scene.add("PathFindingTest", PathFindingTest);
+
+	//
+	fpsmeter = new FPSMeter(document.body, {
+		interval:  100,     // Update interval in milliseconds.
+		smoothing: 10,      // Spike smoothing strength. 1 means no smoothing.
+		show:      'fps',   // Whether to show 'fps', or 'ms' = frame duration in milliseconds.
+		toggleOn:  'click', // Toggle between show 'fps' and 'ms' on this event.
+		decimals:  1,       // Number of decimals in FPS number. 1 = 59.9, 2 = 59.94, ...
+		maxFps:    60,      // Max expected FPS value.
+		threshold: 100,     // Minimal tick reporting interval in milliseconds.
+
+		position: 'absolute',
+		zIndex: 100,
+		left : '10px',
+		top : '10px',
+
+		//
+		theme: 'dark', // Meter theme. Build in: 'dark', 'light', 'transparent', 'colorful'.
+		heat:  60,      // Allow themes to use coloring by FPS heat. 0 FPS = red, maxFps = green.
+
+		// Graph
+		graph:   1, // Whether to show history graph.
+		history: 20 // How many history states to show in a graph.
+	});
 });
 
 
@@ -129,16 +154,16 @@ class Boot extends Phaser.Scene {
 		// this.load.sceneFile('PathFindingTest','assets/client/scenes/PathFindingTest.js');
 		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("PathFindingTest"));
 
-		this.load.sceneFile('SpineStressTest','assets/client/scenes/SpineStressTest.js');
-		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("SpineStressTest"));
+		// this.load.sceneFile('SpineStressTest','assets/client/scenes/SpineStressTest.js');
+		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("SpineStressTest"));
 
 		// this.load.sceneFile('BotOptimisationTest','assets/client/scenes/BotOptimisationTest.js');
 		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("BotOptimisationTest"));
 
 		// this.load.sceneFile('TilemapScene','assets/client/scenes/TilemapScene.js');
 		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("TilemapScene"));
+
+		this.load.sceneFile('SpineContainer','assets/client/scenes/SpineContainer/SpineContainer.js');
+		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("SpineContainer"));
 	}
-
-
-
 }

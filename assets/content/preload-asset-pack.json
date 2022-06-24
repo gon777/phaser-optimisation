@@ -5,11 +5,6 @@
                 "url": "assets/content/guapen.png",
                 "type": "image",
                 "key": "guapen"
-            },
-            {
-                "url": "assets/content/SpineEntity.js",
-                "type": "script",
-                "key": "SpineEntity"
             }
         ]
     },

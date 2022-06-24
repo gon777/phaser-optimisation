@@ -3,18 +3,18 @@
 /* START OF COMPILED CODE */
 
 class SpineStressTest extends Phaser.Scene {
-
+	
 	constructor() {
 		super("SpineStressTest");
-
+		
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
-
+	
 	editorCreate() {
 	}
-
+	
 	/* START-USER-CODE */
 
 	// Write your code here
@@ -26,6 +26,10 @@ class SpineStressTest extends Phaser.Scene {
 	preload() {
 		this.load.spine('blobble', 'assets/content/spine/Blobble_rig_artwork.json', [`assets/content/spine/Blobble_rig_artwork.atlas`], false);
 		this.load.image('dino', 'assets/content/dino.png');
+
+		this.events.on('render', ()=>{
+			fpsmeter.tick()
+		});
 	}
 
 	create() {
@@ -33,6 +37,7 @@ class SpineStressTest extends Phaser.Scene {
 		this.editorCreate();
 		this.blobbleContainer = this.createContainer(0,0);
 		this.uiContainer = this.add.container(0, 0);
+		this.uiContainerRight = this.add.container(0,0);
 
 		//in screen
 		let addInScreenText = this.add.text(100, 150, 'ADD IN-SCREEN', this.FONT)
@@ -77,6 +82,9 @@ class SpineStressTest extends Phaser.Scene {
 		this.uiContainer.add(setInactiveInScreenText);
 		this.uiContainer.add(setVisibleInScreenText);
 		this.uiContainer.add(setInvisibleInScreenText);
+		for(let i=0; i<this.uiContainer.list.length; i++){
+			this.uiContainer.list[i].setPosition(100, 150 + 50 * i);
+		}
 
 		//out screen
 		let addOutScreenText = this.add.text(500, 150, 'ADD OUT-OF-SCREEN', this.FONT)
@@ -116,14 +124,18 @@ class SpineStressTest extends Phaser.Scene {
 			});
 		this.inScreenText = this.add.text(1000, 150, 'IN-SCREEN: 0', this.FONT);
 		this.outScreenText = this.add.text(1000, 175, 'OUT-OF-SCREEN: 0', this.FONT);
-		this.uiContainer.add(addOutScreenText);
-		this.uiContainer.add(removeOutScreenText);
-		this.uiContainer.add(removeAllOutScreenText);
-		this.uiContainer.add(setActiveOutScreenText);
-		this.uiContainer.add(setInactiveOutScreenText);
-		this.uiContainer.add(setVisibleOutScreenText);
-		this.uiContainer.add(setInvisibleOutScreenText);
+		this.uiContainerRight.add(addOutScreenText);
+		this.uiContainerRight.add(removeOutScreenText);
+		this.uiContainerRight.add(removeAllOutScreenText);
+		this.uiContainerRight.add(setActiveOutScreenText);
+		this.uiContainerRight.add(setInactiveOutScreenText);
+		this.uiContainerRight.add(setVisibleOutScreenText);
+		this.uiContainerRight.add(setInvisibleOutScreenText);
+		for(let i=0; i<this.uiContainerRight.list.length; i++){
+			this.uiContainerRight.list[i].setPosition(500, 150 + 50 * i);
+		}
 
+		//
 		let restartScene = this.add.text(1000, 25, 'RESTART', this.FONT)
 			.setInteractive({useHandCursor: true})
 			.on('pointerdown', () => {
@@ -138,8 +150,8 @@ class SpineStressTest extends Phaser.Scene {
 		this.uiContainer.add(this.totalHeapText);
 
 		//fps
-		this.fpsText = this.add.text(20, 20, '?', this.FONT);
-		this.uiContainer.add(this.fpsText);
+		// this.fpsText = this.add.text(20, 20, '?', this.FONT);
+		// this.uiContainer.add(this.fpsText);
 
 		//zoom
 		this.input.keyboard.addKey('Q').on('down', ()=>{

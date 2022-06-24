@@ -4,7 +4,9 @@
     "settings": {
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
-        "sceneKey": "SpineStressTest"
+        "sceneKey": "SpineStressTest",
+        "borderWidth": 1520,
+        "borderHeight": 960
     },
     "displayList": [],
     "plainObjects": [],
