@@ -90,6 +90,15 @@ class SpineContainer extends Phaser.Scene {
 			})
 		this.uiContainer.add(petBattleEntityText);
 
+		//spine object spine container regular container (spine container in regular container)
+		this.spineContainerContainerArray = [];
+		let spineContainerContainerText = this.add.text(100, 150, 'spine object container container', this.FONT)
+			.setInteractive({useHandCursor: true})
+			.on('pointerdown', () => {
+				this.spawnSpineObjectInSpineContainerInRegularContainer();
+			})
+		this.uiContainer.add(spineContainerContainerText);
+
 		//
 		for(let i=0; i<this.uiContainer.list.length; i++){
 			this.uiContainer.list[i].setPosition(100, 100 + 50 * i);
@@ -165,6 +174,24 @@ class SpineContainer extends Phaser.Scene {
 			this.petBattleEntityContainer.push(temp);
 		}
 		console.log(`Pet battle Entity: ${this.petBattleEntityContainer.length}`);
+	}
+
+	spawnSpineObjectInSpineContainerInRegularContainer(){
+		for(let i=0; i<10; i++){
+			let spawnX = 1520 / 2 + (Math.random() * 1520 -  1520)/2 ;
+			let spawnY = 960/2 + (Math.random() * 960 - 960)/2 ;
+
+			let tempSpineObject = this.add.spine(spawnX, spawnY, 'blobble', 'world_idle_animation', true);
+			tempSpineObject.setSkinByName(`default_1`);
+
+			let tempSpineContainer = this.add.spineContainer(spawnX,spawnY);
+			tempSpineContainer.add(tempSpineObject);
+			this.entityRegularContainer.add(tempSpineContainer);
+
+			//
+			this.spineContainerContainerArray.push(tempSpineObject);
+		}
+		console.log(`Spine container container: ${this.spineContainerContainerArray.length}`);
 	}
 
 	

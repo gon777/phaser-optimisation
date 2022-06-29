@@ -145,6 +145,21 @@ window.SpinePlugin.SpineGameObject.prototype.destroy = function() {
 	this.parentContainer = undefined;
 };
 
+window.SpinePlugin.SpineContainer.prototype.removeFromDisplayList = function() {
+	var displayList = this.displayList || this.scene.sys.displayList;
+
+	if(displayList.exists(this)) {
+		displayList.remove(this, true);
+		displayList.queueDepthSort();
+		this.displayList = null;
+
+		// this.emit(Events.REMOVED_FROM_SCENE, this, this.scene);
+		// displayList.events.emit(SceneEvents.REMOVED_FROM_SCENE, this, this.scene);
+	}
+
+	return this;
+};
+
 class Boot extends Phaser.Scene {
 
 	preload() {

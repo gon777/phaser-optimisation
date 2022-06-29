@@ -1,5 +1,4 @@
-if('undefined' === typeof window)
-{
+if ('undefined' === typeof window) {
 	importScripts('../../../lib/easystar-0.4.4.min.js');
 }
 {
@@ -10,7 +9,7 @@ if('undefined' === typeof window)
 		// console.log(`Message Received`);
 		// console.log(e.data);
 		// console.log(easyStar);
-debugger;
+// debugger;
 		switch (e.data.command) {
 			case 'set':
 				easyStar.setGrid(e.data.mapData);
@@ -20,7 +19,8 @@ debugger;
 				break;
 			case 'find':
 				easyStar.findPath(e.data.start.x, e.data.start.y, e.data.end.x, e.data.end.y, (p) => {
-					postMessage(p);;
+					postMessage(p);
+					;
 				});
 				easyStar.calculate();
 				break;
