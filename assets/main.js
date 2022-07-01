@@ -145,6 +145,24 @@ window.SpinePlugin.SpineGameObject.prototype.destroy = function() {
 	this.parentContainer = undefined;
 };
 
+window.SpinePlugin.SpineContainer.prototype.addToDisplayList = function(displayList) {
+	if(displayList === undefined) {
+		displayList = this.scene.sys.displayList;
+	}
+
+	if(this.displayList && this.displayList !== displayList) {
+		this.removeFromDisplayList();
+	}
+
+	//  Don't repeat if it's already on this list
+	if(!displayList.exists(this)) {
+		this.displayList = displayList;
+		displayList.add(this, true);
+		displayList.queueDepthSort();
+	}
+
+	return this;
+};
 window.SpinePlugin.SpineContainer.prototype.removeFromDisplayList = function() {
 	var displayList = this.displayList || this.scene.sys.displayList;
 
