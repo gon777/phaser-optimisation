@@ -193,10 +193,10 @@ class Boot extends Phaser.Scene {
 		// this.load.sceneFile('BotOptimisationTest','assets/client/scenes/BotOptimisationTest.js');
 		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("BotOptimisationTest"));
 
-		// this.load.sceneFile('TilemapScene','assets/client/scenes/TilemapScene.js');
-		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("TilemapScene"));
+		this.load.sceneFile('TilemapScene','assets/client/scenes/Tilemap/TilemapScene.js');
+		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("TilemapScene"));
 
-		this.load.sceneFile('SpineContainer','assets/client/scenes/SpineContainer/SpineContainer.js');
-		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("SpineContainer"));
+		// this.load.sceneFile('SpineContainer','assets/client/scenes/SpineContainer/SpineContainer.js');
+		// this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("SpineContainer"));
 	}
 }
