@@ -3,27 +3,59 @@
 /* START OF COMPILED CODE */
 
 class TilemapScene extends Phaser.Scene {
-	
+
 	constructor() {
 		super("TilemapScene");
-		
+
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
-	
+
+	/** @returns {void} */
 	editorCreate() {
-		
-		// testTilemapLayer
-		const testTilemapLayer = this.add.tilemap("testTilemapLayer");
-		
+
 		// cobblewood
 		const cobblewood = this.add.tilemap("Cobblewood");
-		
-		this.testTilemapLayer = testTilemapLayer;
+		cobblewood.addTilesetImage("forest_medium", "tileset");
+		cobblewood.addTilesetImage("forest_large", "tilesetObejct");
+
+		// image
+		const image = this.add.image(0, 0, "dino");
+		image.setOrigin(0.5, 1);
+
+		// foundation_1
+		cobblewood.createLayer("Foundation", ["forest_medium"], 2571, -224);
+
+		// floorBelowPlayer_1
+		cobblewood.createLayer("FloorBelowPlayer", ["forest_medium"], 2571, -224);
+
+		// floorAbovePlayer_1
+		cobblewood.createLayer("FloorAbovePlayer", ["forest_medium"], 2571, -224);
+
+		// clutter_1
+		cobblewood.createLayer("clutter", ["forest_medium"], 2571, -224);
+
+		// obstacles_1
+		cobblewood.createLayer("Obstacles", ["forest_medium"], 2571, -224);
+
+		// obstaclesUpper
+		cobblewood.createLayer("ObstaclesUpper", ["forest_medium"], 2571, -224);
+
+		// treesUpper_1
+		cobblewood.createLayer("TreesUpper", ["forest_large"], 2571, -224);
+
+		// treesAbovePlayer_1
+		cobblewood.createLayer("TreesAbovePlayer", [], 2571, -224);
+
 		this.cobblewood = cobblewood;
+
+		this.events.emit("scene-awake");
 	}
-	
+
+	/** @type {Phaser.Tilemaps.Tilemap} */
+	cobblewood;
+
 	/* START-USER-CODE */
 
 	// Write your code here
@@ -34,37 +66,54 @@ class TilemapScene extends Phaser.Scene {
 		this.load.spine('blobble', 'assets/content/spine/Blobble_rig_artwork.json', [`assets/content/spine/Blobble_rig_artwork.atlas`], false);
 
 		//load tilemap
-		this.load.image('testTileset', 'assets/content/tilemap/tileset.png', {
-			frameWidth: 256,
-			frameHeight: 192,
-		});
-		this.load.image('largeForest1', 'assets/content/tilemap/tile_object.png', {
-			frameWidth: 256,
-			frameHeight: 330,
-		});
-		this.load.image('dino', 'assets/content/dino.png');
-		this.load.tilemapTiledJSON('testTilemapLayer', 'assets/content/tilemap/testTilemapLayer.json');
-		this.load.tilemapTiledJSON('Cobblewood', 'assets/content/tilemap/Cobblewood.json');
-
-		// this.events.on('render', ()=>{
-		// 	fpsmeter.tick()
+		// this.load.image('testTileset', 'assets/content/tilemap/tileset.png', {
+		// 	frameWidth: 256,
+		// 	frameHeight: 192,
 		// });
+		// this.load.image('largeForest1', 'assets/content/tilemap/tile_object.png', {
+		// 	frameWidth: 256,
+		// 	frameHeight: 330,
+		// });
+		// this.load.image('dino', 'assets/content/dino.png');
+		// this.load.tilemapTiledJSON('realThingMap', 'assets/content/tilemap/realThing/realThingMap.tmx');
+		// this.load.tilemapTiledJSON('Cobblewood', 'assets/content/tilemap/Cobblewood.json');
+
+		this.events.on('render', () => {
+			fpsmeter.tick()
+		});
 
 	}
 
 	create() {
 		this.editorCreate();
 
+		this.cameras.main.zoom =1;
 
+		this.whattodo();
 		this.createPlayer();
 		this.createBot();
 	}
+
+	//getTileAtWorldX is bugged @3.55.2
+	whattodo() {
+		console.log(this.realThingMap);
+
+		//debug
+		this.add.circle(0, 0, 80, 0x6666ff);
+
+		// let graphics = this.add.graphics();
+		// graphics.fillCircle(0, 0, 50);;;;
+		// this.realThingMap.renderDebugFull(graphics, {
+		// 	tileColor: new Phaser.Display.Color(255, 255, 255, 100),         // null
+		// });
+	}
+
 
 	createPlayer() {
 		this.player = new Player(this, 0, 0);
 	}
 
-	createBot(){
+	createBot() {
 
 	}
 
@@ -91,11 +140,16 @@ class Player extends Phaser.GameObjects.Container {
 		//mouse input
 		this.scene.input.on('pointerdown', function (pointer) {
 			this.moveTo(pointer.worldX, pointer.worldY);
+			// let tileFloor = this.scene.realThingMap.getTileAtWorldXY(pointer.worldX, pointer.worldY, false, this.scene.cameras.main, 'tl_floor');
+			// console.log(tileFloor);
+
+			// let tileTree = this.scene.realThingMap.getTileAtWorldXY(pointer.worldX, pointer.worldY, false, this.scene.cameras.main, 'tl_tree');
+			// console.log(tileTree);
 		}, this);
 
 		//spine object
 		this.spineObject = this.scene.add.spine(0, 0, 'blobble', 'world_idle_animation', true);
-		this.spineObject .setSkinByName(`default_1`);
+		this.spineObject.setSkinByName(`default_1`);
 		this.spineObject.setScale(0.8);
 		this.add(this.spineObject);
 
@@ -138,8 +192,8 @@ class Player extends Phaser.GameObjects.Container {
 
 }
 
-class Bot extends  Phaser.GameObjects.Container{
-	constructor(scene, x ,y) {
+class Bot extends Phaser.GameObjects.Container {
+	constructor(scene, x, y) {
 		super(scene, x, y);
 	}
 }

@@ -1,0 +1,76 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json": {
+            "scale": 0.5,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 850,
+                "y": 915
+            }
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json#forest_large": {
+            "scaleInDock": 0.25
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json#forest_medium": {
+            "scaleInDock": 0.25
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/testTilemap/testTilemap.tmx": {
+            "scale": 0.104833984375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2561.19236143456,
+                "y": 1282.9809035863996
+            }
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/testTilemap/testTileset.tsx": {
+            "scaleInDock": 1
+        },
+        "realThingMap.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 544,
+                "y": 390
+            }
+        },
+        "realThingMap.tmx#realThingTileset": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "realThingMap.tmx#realThingTilesetObject": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods",
+    "last.imagePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/realThing",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 192,
+    "map.tileWidth": 256,
+    "openFiles": [
+    ],
+    "project": "realThing.tiled-project",
+    "recentFiles": [
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json",
+        "realThingMap.tmx",
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/testTilemap/testTilemap.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 330,
+        "width": 256
+    }
+}

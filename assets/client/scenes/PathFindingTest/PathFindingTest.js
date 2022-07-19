@@ -3,21 +3,18 @@
 /* START OF COMPILED CODE */
 
 class PathFindingTest extends Phaser.Scene {
-
+	
 	constructor() {
 		super("PathFindingTest");
-
+		
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
-
-	/** @returns {void} */
+	
 	editorCreate() {
-
-		this.events.emit("scene-awake");
 	}
-
+	
 	/* START-USER-CODE */
 
 	// Write your code here

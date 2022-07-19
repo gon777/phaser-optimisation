@@ -2,7 +2,7 @@
     "section1": {
         "files": [
             {
-                "url": "assets/content/tilemap/Cobblewood.json",
+                "url": "assets/content/tilemap/cobblewood/Cobblewood.tmj",
                 "type": "tilemapTiledJSON",
                 "key": "Cobblewood"
             },
@@ -12,19 +12,35 @@
                 "type": "image"
             },
             {
-                "url": "assets/content/tilemap/largeForest1.png",
-                "type": "image",
-                "key": "largeForest1"
-            },
-            {
-                "url": "assets/content/tilemap/testTilemapLayer.json",
+                "url": "assets/content/tilemap/realThing/realThingMap.tmj",
                 "type": "tilemapTiledJSON",
-                "key": "testTilemapLayer"
+                "key": "realThingMap"
             },
             {
-                "url": "assets/content/tilemap/testTileset.png",
-                "type": "image",
-                "key": "testTileset"
+                "url": "assets/content/tilemap/realThing/tileset.png",
+                "frameConfig": {
+                    "frameWidth": 512,
+                    "frameHeight": 192,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "tileset"
+            },
+            {
+                "url": "assets/content/tilemap/realThing/tilesetObejct.png",
+                "frameConfig": {
+                    "frameWidth": 256,
+                    "frameHeight": 330,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "tilesetObejct"
             }
         ]
     },
@@ -32,6 +48,7 @@
         "app": "Phaser Editor 2D - Asset Pack Editor",
         "contentType": "phasereditor2d.pack.core.AssetContentType",
         "url": "https://phasereditor2d.com",
-        "version": 2
+        "version": 2,
+        "showAllFilesInBlocks": false
     }
 }

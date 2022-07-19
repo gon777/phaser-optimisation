@@ -8,26 +8,152 @@
         "borderWidth": 1520,
         "borderHeight": 960
     },
-    "displayList": [],
-    "plainObjects": [
+    "displayList": [
         {
-            "id": "b02bf3f3-bb4d-4b20-9c5e-67018d368644",
-            "type": "Tilemap",
-            "label": "testTilemapLayer",
-            "key": "testTilemapLayer",
-            "tilesets": []
+            "type": "Image",
+            "id": "502173ed-771e-4930-b70d-8be8821bf316",
+            "label": "image",
+            "components": [],
+            "texture": {
+                "key": "dino"
+            },
+            "originY": 1
         },
         {
-            "id": "0f5e7b04-0815-4a9f-b735-a1362c51ac6b",
+            "type": "TilemapLayer",
+            "id": "380cda66-1fc0-4647-ac4d-eed43c712d2a",
+            "label": "foundation_1",
+            "components": [],
+            "x": 2571,
+            "y": -224,
+            "tilemapId": "dd05ea34-8e25-43b1-b9f7-f4bfdf581b7b",
+            "layerName": "Foundation",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "a543ba34-4b74-486f-ba71-746d984f7059",
+            "label": "floorBelowPlayer_1",
+            "components": [],
+            "x": 2571,
+            "y": -224,
+            "tilemapId": "dd05ea34-8e25-43b1-b9f7-f4bfdf581b7b",
+            "layerName": "FloorBelowPlayer",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "5729c34a-19d6-4e26-b426-3bfc612e26d1",
+            "label": "floorAbovePlayer_1",
+            "components": [],
+            "x": 2571,
+            "y": -224,
+            "tilemapId": "dd05ea34-8e25-43b1-b9f7-f4bfdf581b7b",
+            "layerName": "FloorAbovePlayer",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "9cbc1552-4954-4513-9827-f8e80679574d",
+            "label": "clutter_1",
+            "components": [],
+            "x": 2571,
+            "y": -224,
+            "tilemapId": "dd05ea34-8e25-43b1-b9f7-f4bfdf581b7b",
+            "layerName": "clutter",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "1b666ab4-1210-486d-b26e-2eec6a78aa60",
+            "label": "obstacles_1",
+            "components": [],
+            "x": 2571,
+            "y": -224,
+            "tilemapId": "dd05ea34-8e25-43b1-b9f7-f4bfdf581b7b",
+            "layerName": "Obstacles",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "825a5a75-0376-48a9-849a-9c9989f16ace",
+            "label": "obstaclesUpper",
+            "components": [],
+            "x": 2571,
+            "y": -224,
+            "tilemapId": "dd05ea34-8e25-43b1-b9f7-f4bfdf581b7b",
+            "layerName": "ObstaclesUpper",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "17b27a91-bb7a-41aa-8689-882d911060cc",
+            "label": "treesUpper_1",
+            "components": [],
+            "x": 2571,
+            "y": -224,
+            "tilemapId": "dd05ea34-8e25-43b1-b9f7-f4bfdf581b7b",
+            "layerName": "TreesUpper",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "07e983c6-8343-435f-9432-b96fb42cb78a",
+            "label": "treesAbovePlayer_1",
+            "components": [],
+            "x": 2571,
+            "y": -224,
+            "tilemapId": "dd05ea34-8e25-43b1-b9f7-f4bfdf581b7b",
+            "layerName": "TreesAbovePlayer",
+            "tilesets": [
+                "forest_medium",
+                "forest_large"
+            ]
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "dd05ea34-8e25-43b1-b9f7-f4bfdf581b7b",
             "type": "Tilemap",
             "label": "cobblewood",
             "key": "Cobblewood",
-            "tilesets": []
+            "tilesets": [
+                {
+                    "name": "forest_medium",
+                    "imageKey": "tileset"
+                },
+                {
+                    "name": "forest_large",
+                    "imageKey": "tilesetObejct"
+                }
+            ]
         }
     ],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType"
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
     }
 }

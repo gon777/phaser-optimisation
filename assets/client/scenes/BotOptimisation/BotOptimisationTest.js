@@ -3,25 +3,23 @@
 /* START OF COMPILED CODE */
 
 class BotOptimisationTest extends Phaser.Scene {
-
+	
 	constructor() {
 		super("BotOptimisationTest");
-
+		
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
-
-	/** @returns {void} */
+	
 	editorCreate() {
-
+		
 		// text_1
 		const text_1 = this.add.text(444, 240, "", {});
+		text_1.setOrigin(0.5, 0.5);
 		text_1.text = "New text";
-
-		this.events.emit("scene-awake");
 	}
-
+	
 	/* START-USER-CODE */
 
 	// Write your code here

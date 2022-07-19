@@ -1,10 +1,12 @@
 {
-    "id": "01aefa93-6044-4159-8358-7e91310aa05f",
+    "id": "04aa5693-f58f-417c-9bd3-f813619e8152",
     "sceneType": "SCENE",
     "settings": {
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
-        "sceneKey": "Level"
+        "sceneKey": "Level",
+        "borderWidth": 1520,
+        "borderHeight": 960
     },
     "displayList": [
         {
@@ -16,9 +18,7 @@
             ],
             "texture": {
                 "key": "dino"
-            },
-            "x": 400,
-            "y": 218
+            }
         },
         {
             "type": "Text",
@@ -27,18 +27,66 @@
             "components": [],
             "x": 400,
             "y": 460,
-            "originX": 0.5,
-            "originY": 0.5,
             "text": "Phaser 3 + Phaser Editor 2D",
             "fontFamily": "Arial",
             "fontSize": "30px"
+        },
+        {
+            "type": "Container",
+            "id": "a3fe8444-601e-41c1-921a-365dd19e031c",
+            "label": "container_tilemap",
+            "components": [],
+            "list": [
+                {
+                    "type": "TilemapLayer",
+                    "id": "c565c4c8-7b0b-46db-8a24-b634c3738d61",
+                    "label": "tl_floor",
+                    "scope": "CLASS",
+                    "components": [],
+                    "tilemapId": "6677f065-2a87-4a3f-a561-6452e3c33e3f",
+                    "layerName": "tl_floor",
+                    "tilesets": [
+                        "realThingTileset",
+                        "realThingTilesetObject"
+                    ]
+                },
+                {
+                    "type": "TilemapLayer",
+                    "id": "90e21fdb-cc7c-4fb6-a0e5-f4c663c42025",
+                    "label": "tl_tree",
+                    "scope": "CLASS",
+                    "components": [],
+                    "tilemapId": "6677f065-2a87-4a3f-a561-6452e3c33e3f",
+                    "layerName": "tl_tree",
+                    "tilesets": [
+                        "realThingTileset",
+                        "realThingTilesetObject"
+                    ]
+                }
+            ]
         }
     ],
-    "plainObjects": [],
+    "plainObjects": [
+        {
+            "id": "6677f065-2a87-4a3f-a561-6452e3c33e3f",
+            "type": "Tilemap",
+            "label": "realThingMap",
+            "key": "realThingMap",
+            "tilesets": [
+                {
+                    "name": "realThingTileset",
+                    "imageKey": "tileset"
+                },
+                {
+                    "name": "realThingTilesetObject",
+                    "imageKey": "tilesetObejct"
+                }
+            ]
+        }
+    ],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
     }
 }

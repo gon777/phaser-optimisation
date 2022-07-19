@@ -13,7 +13,7 @@
             "scale": 0.25,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 2340,
+                "x": 2338,
                 "y": 954
             }
         },
@@ -27,7 +27,9 @@
             "scaleInEditor": 1
         }
     },
+    "last.exportedFilePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/client/scenes/Tilemap",
     "last.imagePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap",
+    "map.lastUsedExportFilter": "CSV files (*.csv)",
     "map.lastUsedFormat": "tmx",
     "map.orientation": null,
     "map.tileWidth": 64,
