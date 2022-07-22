@@ -3,8 +3,9 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/tilemaps/Cobblewoods.json",
     "expandedProjectPaths": [
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -12,19 +13,97 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
-        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json": {
-            "scale": 0.5,
-            "selectedLayer": 6,
+        "/Users/gordon/Downloads/new_cobblewoods/tilemaps/Cobblewoods.json": {
+            "scale": 0.33,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 850,
-                "y": 915
+                "x": 2966.6666666666665,
+                "y": 1413.6363636363637
+            }
+        },
+        "/Users/gordon/Downloads/new_cobblewoods/tilemaps/Cobblewoods.json#earth_tiles": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "/Users/gordon/Downloads/new_cobblewoods/tilesets/earth_tiles.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json": {
+            "scale": 0.33,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 2343.939393939394,
+                "y": 1222.7272727272727
             }
         },
         "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json#forest_large": {
-            "scaleInDock": 0.25
+            "scaleInDock": 0.33
         },
         "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json#forest_medium": {
+            "scaleInDock": 0.33
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewoods.json": {
+            "scale": 0.125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2520,
+                "y": 932
+            }
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewoods.json#large_earth_tileset": {
             "scaleInDock": 0.25
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewoods.json#medium_earth_tileset": {
+            "scaleInDock": 0.25
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewoods_new.json": {
+            "scale": 0.25,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 2244,
+                "y": 1174
+            }
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewoods_new.json#large_earth_tileset": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewoods_new.json#medium_earth_tileset": {
+            "scaleInDock": 0.25
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/Cobblewoods.json": {
+            "scale": 0.1117919921875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2567.2679624372136,
+                "y": 3627.272330203102
+            }
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/tilemaps/Cobblewoods.json": {
+            "scale": 0.5,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 3718,
+                "y": 1019
+            }
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/tilemaps/Cobblewoods.json#aaa": {
+            "dynamicWrapping": false,
+            "scaleInEditor": 1
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/tilemaps/Cobblewoods.json#earth_tiles": {
+            "dynamicWrapping": true,
+            "scaleInDock": 0.06,
+            "scaleInEditor": 1
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/tilemaps/earth_tiles.tsj": {
+            "scaleInDock": 1
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/tilesets/earth_tiles.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.12
         },
         "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/testTilemap/testTilemap.tmx": {
             "scale": 0.104833984375,
@@ -37,16 +116,20 @@
         "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/testTilemap/testTileset.tsx": {
             "scaleInDock": 1
         },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/tilesets/earth_tiles.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
         "realThingMap.tmx": {
-            "scale": 0.75,
-            "selectedLayer": 0,
+            "scale": 0.5,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 544,
-                "y": 390
+                "x": 658,
+                "y": 219
             }
         },
         "realThingMap.tmx#realThingTileset": {
-            "scaleInDock": 1,
+            "scaleInDock": 0.25,
             "scaleInEditor": 1
         },
         "realThingMap.tmx#realThingTilesetObject": {
@@ -54,23 +137,37 @@
             "scaleInEditor": 1
         }
     },
-    "last.exportedFilePath": "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods",
-    "last.imagePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/realThing",
+    "last.exportedFilePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/realThing",
+    "last.externalTilesetPath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/tilemaps",
+    "last.imagePath": "/Users/gordon/Desktop",
+    "last.worldFilePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood",
+    "loadedWorlds": [
+    ],
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
+    "map.orientation": null,
     "map.tileHeight": 192,
     "map.tileWidth": 256,
+    "map.width": 20,
     "openFiles": [
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/tilemaps/Cobblewoods.json"
     ],
     "project": "realThing.tiled-project",
     "recentFiles": [
-        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json",
         "realThingMap.tmx",
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewoods.json",
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewoods_new.json",
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/Cobblewood.json",
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/tilemaps/Cobblewoods.json",
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/cobblewood/Cobblewoods.json",
+        "/Users/gordon/Downloads/new_cobblewoods/tilesets/earth_tiles.tsx",
+        "/Users/gordon/Downloads/new_cobblewoods/tilemaps/Cobblewoods.json",
         "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/testTilemap/testTilemap.tmx"
     ],
     "tileset.embedInMap": true,
+    "tileset.spacing": 4,
     "tileset.tileSize": {
-        "height": 330,
+        "height": 192,
         "width": 256
     }
 }

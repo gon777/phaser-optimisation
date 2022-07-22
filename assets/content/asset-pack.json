@@ -2,9 +2,9 @@
     "section1": {
         "files": [
             {
-                "url": "assets/content/tilemap/cobblewood/Cobblewood.tmj",
+                "url": "assets/content/tilemap/cobblewood/Cobblewoods.tmj",
                 "type": "tilemapTiledJSON",
-                "key": "Cobblewood"
+                "key": "Cobblewoods"
             },
             {
                 "url": "assets/content/dino.png",
@@ -12,35 +12,30 @@
                 "type": "image"
             },
             {
-                "url": "assets/content/tilemap/realThing/realThingMap.tmj",
-                "type": "tilemapTiledJSON",
-                "key": "realThingMap"
-            },
-            {
-                "url": "assets/content/tilemap/realThing/tileset.png",
+                "url": "assets/content/tilemap/cobblewood/large_earth_tileset.png",
                 "frameConfig": {
-                    "frameWidth": 512,
-                    "frameHeight": 192,
+                    "frameWidth": 32,
+                    "frameHeight": 32,
                     "startFrame": 0,
                     "endFrame": -1,
                     "spacing": 0,
                     "margin": 0
                 },
                 "type": "spritesheet",
-                "key": "tileset"
+                "key": "large_earth_tileset"
             },
             {
-                "url": "assets/content/tilemap/realThing/tilesetObejct.png",
+                "url": "assets/content/tilemap/cobblewood/medium_earth_tileset.png",
                 "frameConfig": {
-                    "frameWidth": 256,
-                    "frameHeight": 330,
+                    "frameWidth": 32,
+                    "frameHeight": 32,
                     "startFrame": 0,
                     "endFrame": -1,
                     "spacing": 0,
                     "margin": 0
                 },
                 "type": "spritesheet",
-                "key": "tilesetObejct"
+                "key": "medium_earth_tileset"
             }
         ]
     },

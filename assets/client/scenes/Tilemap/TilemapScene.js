@@ -15,46 +15,38 @@ class TilemapScene extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
-		// cobblewood
-		const cobblewood = this.add.tilemap("Cobblewood");
-		cobblewood.addTilesetImage("forest_medium", "tileset");
-		cobblewood.addTilesetImage("forest_large", "tilesetObejct");
+		// cobblewoods
+		const cobblewoods = this.add.tilemap("Cobblewoods");
+		cobblewoods.addTilesetImage("medium_earth_tileset", "medium_earth_tileset");
+		cobblewoods.addTilesetImage("large_earth_tileset", "large_earth_tileset");
 
 		// image
 		const image = this.add.image(0, 0, "dino");
 		image.setOrigin(0.5, 1);
 
-		// foundation_1
-		cobblewood.createLayer("Foundation", ["forest_medium"], 2571, -224);
+		// ground_base_1
+		cobblewoods.createLayer("ground_base", ["medium_earth_tileset"], 0, 0);
 
-		// floorBelowPlayer_1
-		cobblewood.createLayer("FloorBelowPlayer", ["forest_medium"], 2571, -224);
+		// elevated_ground_below_1
+		cobblewoods.createLayer("elevated_ground_below", ["medium_earth_tileset"], 0, 0);
 
-		// floorAbovePlayer_1
-		cobblewood.createLayer("FloorAbovePlayer", ["forest_medium"], 2571, -224);
+		// elevated_ground_above_1
+		cobblewoods.createLayer("elevated_ground_above", ["medium_earth_tileset"], 0, 0);
 
-		// clutter_1
-		cobblewood.createLayer("clutter", ["forest_medium"], 2571, -224);
+		// objects_1
+		const objects_1 = cobblewoods.createLayer("objects", ["large_earth_tileset","medium_earth_tileset"], 0, 0);
+		objects_1.visible = false;
 
-		// obstacles_1
-		cobblewood.createLayer("Obstacles", ["forest_medium"], 2571, -224);
+		// elevated_objects_1
+		cobblewoods.createLayer("elevated_objects", ["large_earth_tileset","medium_earth_tileset"], 0, 0);
 
-		// obstaclesUpper
-		cobblewood.createLayer("ObstaclesUpper", ["forest_medium"], 2571, -224);
-
-		// treesUpper_1
-		cobblewood.createLayer("TreesUpper", ["forest_large"], 2571, -224);
-
-		// treesAbovePlayer_1
-		cobblewood.createLayer("TreesAbovePlayer", [], 2571, -224);
-
-		this.cobblewood = cobblewood;
+		this.cobblewoods = cobblewoods;
 
 		this.events.emit("scene-awake");
 	}
 
 	/** @type {Phaser.Tilemaps.Tilemap} */
-	cobblewood;
+	cobblewoods;
 
 	/* START-USER-CODE */
 
@@ -99,7 +91,7 @@ class TilemapScene extends Phaser.Scene {
 		console.log(this.realThingMap);
 
 		//debug
-		this.add.circle(0, 0, 80, 0x6666ff);
+		this.add.circle(0, 0, 10, 0x6666ff);
 
 		// let graphics = this.add.graphics();
 		// graphics.fillCircle(0, 0, 50);;;;
