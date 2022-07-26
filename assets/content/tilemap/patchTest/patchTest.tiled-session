@@ -1,0 +1,31 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "patchTestTilemap.tmx#medium_earth_tileset": {
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/patchTest",
+    "last.imagePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap",
+    "map.fixedSize": false,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.orientation": null,
+    "openFiles": [
+    ],
+    "project": "patchTest.tiled-project",
+    "recentFiles": [
+    ],
+    "tileset.embedInMap": true,
+    "tileset.spacing": 4,
+    "tileset.tileSize": {
+        "height": 330,
+        "width": 256
+    }
+}

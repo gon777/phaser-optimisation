@@ -15,38 +15,28 @@ class TilemapScene extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
-		// cobblewoods
-		const cobblewoods = this.add.tilemap("Cobblewoods");
-		cobblewoods.addTilesetImage("medium_earth_tileset", "medium_earth_tileset");
-		cobblewoods.addTilesetImage("large_earth_tileset", "large_earth_tileset");
+		// patchTestTilemap
+		const patchTestTilemap = this.add.tilemap("patchTestTilemap");
+		patchTestTilemap.addTilesetImage("medium_earth_tileset", "medium_earth_tileset");
+		patchTestTilemap.addTilesetImage("large_earth_tileset", "large_earth_tileset");
 
 		// image
 		const image = this.add.image(0, 0, "dino");
 		image.setOrigin(0.5, 1);
 
-		// ground_base_1
-		cobblewoods.createLayer("ground_base", ["medium_earth_tileset"], 0, 0);
+		// medium_only_1
+		patchTestTilemap.createLayer("medium-only", ["medium_earth_tileset"], 0, 0);
 
-		// elevated_ground_below_1
-		cobblewoods.createLayer("elevated_ground_below", ["medium_earth_tileset"], 0, 0);
+		// large_only_1
+		patchTestTilemap.createLayer("large-only", ["large_earth_tileset"], 0, 0);
 
-		// elevated_ground_above_1
-		cobblewoods.createLayer("elevated_ground_above", ["medium_earth_tileset"], 0, 0);
-
-		// objects_1
-		const objects_1 = cobblewoods.createLayer("objects", ["large_earth_tileset","medium_earth_tileset"], 0, 0);
-		objects_1.visible = false;
-
-		// elevated_objects_1
-		cobblewoods.createLayer("elevated_objects", ["large_earth_tileset","medium_earth_tileset"], 0, 0);
-
-		this.cobblewoods = cobblewoods;
+		this.patchTestTilemap = patchTestTilemap;
 
 		this.events.emit("scene-awake");
 	}
 
 	/** @type {Phaser.Tilemaps.Tilemap} */
-	cobblewoods;
+	patchTestTilemap;
 
 	/* START-USER-CODE */
 
@@ -79,14 +69,14 @@ class TilemapScene extends Phaser.Scene {
 	create() {
 		this.editorCreate();
 
-		this.cameras.main.zoom =1;
+		this.cameras.main.zoom = 0.5;
 
 		this.whattodo();
 		this.createPlayer();
 		this.createBot();
 	}
 
-	//getTileAtWorldX is bugged @3.55.2
+	//getTileAtWorldX is bugged phaser@3.55.2
 	whattodo() {
 		console.log(this.realThingMap);
 

@@ -36,6 +36,11 @@
                 },
                 "type": "spritesheet",
                 "key": "medium_earth_tileset"
+            },
+            {
+                "url": "assets/content/tilemap/patchTest/patchTestTilemap.tmj",
+                "type": "tilemapTiledJSON",
+                "key": "patchTestTilemap"
             }
         ]
     },

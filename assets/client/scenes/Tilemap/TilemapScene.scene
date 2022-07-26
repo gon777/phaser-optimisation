@@ -21,11 +21,11 @@
         },
         {
             "type": "TilemapLayer",
-            "id": "9cf0773b-056c-4055-bbd4-c18c9a595731",
-            "label": "ground_base_1",
+            "id": "58ca7d4f-8358-4672-bd23-ae17d24aae04",
+            "label": "medium_only_1",
             "components": [],
-            "tilemapId": "3d003f1d-ecb7-4df9-b84d-db2e1aa00bee",
-            "layerName": "ground_base",
+            "tilemapId": "c7a851f4-509f-4b1f-aede-e452e2c855e7",
+            "layerName": "medium-only",
             "tilesets": [
                 "medium_earth_tileset",
                 "large_earth_tileset"
@@ -33,48 +33,11 @@
         },
         {
             "type": "TilemapLayer",
-            "id": "86b734b2-d693-411a-83b0-bdec3a44dc30",
-            "label": "elevated_ground_below_1",
+            "id": "54523e40-0a47-484e-a919-5291f15f4f18",
+            "label": "large_only_1",
             "components": [],
-            "tilemapId": "3d003f1d-ecb7-4df9-b84d-db2e1aa00bee",
-            "layerName": "elevated_ground_below",
-            "tilesets": [
-                "medium_earth_tileset",
-                "large_earth_tileset"
-            ]
-        },
-        {
-            "type": "TilemapLayer",
-            "id": "af1b1eea-352c-4fac-83f2-e548c514e8a9",
-            "label": "elevated_ground_above_1",
-            "components": [],
-            "tilemapId": "3d003f1d-ecb7-4df9-b84d-db2e1aa00bee",
-            "layerName": "elevated_ground_above",
-            "tilesets": [
-                "medium_earth_tileset",
-                "large_earth_tileset"
-            ]
-        },
-        {
-            "type": "TilemapLayer",
-            "id": "db58e35d-54c8-450d-9e37-67a16a256d4e",
-            "label": "objects_1",
-            "components": [],
-            "visible": false,
-            "tilemapId": "3d003f1d-ecb7-4df9-b84d-db2e1aa00bee",
-            "layerName": "objects",
-            "tilesets": [
-                "medium_earth_tileset",
-                "large_earth_tileset"
-            ]
-        },
-        {
-            "type": "TilemapLayer",
-            "id": "ba9a3483-9cc6-4023-90e5-afa578f546ab",
-            "label": "elevated_objects_1",
-            "components": [],
-            "tilemapId": "3d003f1d-ecb7-4df9-b84d-db2e1aa00bee",
-            "layerName": "elevated_objects",
+            "tilemapId": "c7a851f4-509f-4b1f-aede-e452e2c855e7",
+            "layerName": "large-only",
             "tilesets": [
                 "medium_earth_tileset",
                 "large_earth_tileset"
@@ -83,10 +46,10 @@
     ],
     "plainObjects": [
         {
-            "id": "3d003f1d-ecb7-4df9-b84d-db2e1aa00bee",
+            "id": "c7a851f4-509f-4b1f-aede-e452e2c855e7",
             "type": "Tilemap",
-            "label": "cobblewoods",
-            "key": "Cobblewoods",
+            "label": "patchTestTilemap",
+            "key": "patchTestTilemap",
             "tilesets": [
                 {
                     "name": "medium_earth_tileset",
