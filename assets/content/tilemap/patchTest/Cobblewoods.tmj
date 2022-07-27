@@ -204,7 +204,7 @@
         {
          "columns":4,
          "firstgid":1,
-         "image":"medium_earth_tileset.png",
+         "image":"..\/cobblewood\/medium_earth_tileset.png",
          "imageheight":1564,
          "imagewidth":1036,
          "margin":0,
@@ -217,7 +217,7 @@
         {
          "columns":2,
          "firstgid":33,
-         "image":"large_earth_tileset.png",
+         "image":"..\/cobblewood\/large_earth_tileset.png",
          "imageheight":1332,
          "imagewidth":516,
          "margin":0,

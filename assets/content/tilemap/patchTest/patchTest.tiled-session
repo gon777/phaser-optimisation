@@ -6,12 +6,41 @@
     "activeFile": "",
     "expandedProjectPaths": [
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "D:/ProjectsVersionControlled/Test/phaser-optimisation/assets/content/tilemap/cobblewood/Cobblewoods.tmj": {
+            "scale": 0.09704101562499999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 3586.112508805475,
+                "y": 1545.7381503471875
+            }
+        },
+        "D:/ProjectsVersionControlled/Test/phaser-optimisation/assets/content/tilemap/cobblewood/Cobblewoods.tmj#large_earth_tileset": {
+            "scaleInDock": 1
+        },
+        "D:/ProjectsVersionControlled/Test/phaser-optimisation/assets/content/tilemap/cobblewood/Cobblewoods.tmj#medium_earth_tileset": {
+            "scaleInDock": 1
+        },
+        "patchTestTilemap.tmj": {
+            "scale": 0.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 2968,
+                "y": 134
+            }
+        },
+        "patchTestTilemap.tmj#large_earth_tileset": {
+            "scaleInDock": 0.25
+        },
+        "patchTestTilemap.tmj#medium_earth_tileset": {
+            "scaleInDock": 0.25
+        },
         "patchTestTilemap.tmx#medium_earth_tileset": {
             "scaleInEditor": 1
         }
     },
-    "last.exportedFilePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/patchTest",
+    "last.exportedFilePath": "D:/ProjectsVersionControlled/Test/phaser-optimisation/assets/content/tilemap/patchTest",
     "last.imagePath": "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap",
     "map.fixedSize": false,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
@@ -21,6 +50,7 @@
     ],
     "project": "patchTest.tiled-project",
     "recentFiles": [
+        "patchTestTilemap.tmj"
     ],
     "tileset.embedInMap": true,
     "tileset.spacing": 4,

@@ -20,23 +20,50 @@ class TilemapScene extends Phaser.Scene {
 		patchTestTilemap.addTilesetImage("medium_earth_tileset", "medium_earth_tileset");
 		patchTestTilemap.addTilesetImage("large_earth_tileset", "large_earth_tileset");
 
+		// cobblewoods
+		const cobblewoods = this.add.tilemap("Cobblewoods");
+		cobblewoods.addTilesetImage("medium_earth_tileset", "medium_earth_tileset");
+		cobblewoods.addTilesetImage("large_earth_tileset", "large_earth_tileset");
+
 		// image
 		const image = this.add.image(0, 0, "dino");
 		image.setOrigin(0.5, 1);
 
 		// medium_only_1
-		patchTestTilemap.createLayer("medium-only", ["medium_earth_tileset"], 0, 0);
+		const medium_only_1 = patchTestTilemap.createLayer("medium-only", ["medium_earth_tileset"], 0, 1);
+		medium_only_1.visible = false;
 
 		// large_only_1
-		patchTestTilemap.createLayer("large-only", ["large_earth_tileset"], 0, 0);
+		const large_only_1 = patchTestTilemap.createLayer("large-only", ["large_earth_tileset"], 0, 0);
+		large_only_1.visible = false;
+
+		// medium_large_1
+		const medium_large_1 = patchTestTilemap.createLayer("medium-large", ["medium_earth_tileset","large_earth_tileset"], 0, 0);
+		medium_large_1.visible = false;
+
+		// ground_base_1
+		cobblewoods.createLayer("ground_base", ["medium_earth_tileset"], 0, 0);
+
+		// path_1
+		cobblewoods.createLayer("path", ["medium_earth_tileset"], 0, 0);
+
+		// elevated_ground_below_1
+		cobblewoods.createLayer("elevated_ground_below", ["medium_earth_tileset"], 0, 0);
+
+		// objects_1
+		cobblewoods.createLayer("objects", ["large_earth_tileset","medium_earth_tileset"], 0, 0);
+
+		// elevated_ground_above_1
+		cobblewoods.createLayer("elevated_ground_above", ["medium_earth_tileset"], 0, 0);
+
+		// elevated_objects_1
+		cobblewoods.createLayer("elevated_objects", ["large_earth_tileset","medium_earth_tileset"], 0, 0);
 
 		this.patchTestTilemap = patchTestTilemap;
+		this.cobblewoods = cobblewoods;
 
 		this.events.emit("scene-awake");
 	}
-
-	/** @type {Phaser.Tilemaps.Tilemap} */
-	patchTestTilemap;
 
 	/* START-USER-CODE */
 
@@ -72,6 +99,11 @@ class TilemapScene extends Phaser.Scene {
 		this.cameras.main.zoom = 0.5;
 
 		this.whattodo();
+
+		//
+		this.createReference();
+
+		//
 		this.createPlayer();
 		this.createBot();
 	}
@@ -97,6 +129,17 @@ class TilemapScene extends Phaser.Scene {
 
 	createBot() {
 
+	}
+
+	createReference(){
+		let TILE_WIDTH = 256;
+		let TILE_HEIGHT = 128;
+		for(let col=0; col< 10; col ++){
+			for(let row=0; row<10; row++){
+				let rect = this.add.rectangle((row + 0.5) * TILE_WIDTH , (col + 0.5) * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT);
+				rect.setStrokeStyle(2, 0x1a65ac);
+			}
+		}
 	}
 
 	/* END-USER-CODE */
