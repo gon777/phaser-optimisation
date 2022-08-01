@@ -232,7 +232,6 @@ Phaser.Tilemaps.TilemapLayer.prototype.renderWebGL = function (renderer, src, ca
 	renderer.pipelines.preBatch(src);
 
 	for (var i = 0; i < tileCount; i++) {
-		// debugger;
 		var tile = renderTiles[i];
 
 		var tileset = gidMap[tile.index];
@@ -257,30 +256,10 @@ Phaser.Tilemaps.TilemapLayer.prototype.renderWebGL = function (renderer, src, ca
 		var frameX = tileTexCoords.x;
 		var frameY = tileTexCoords.y;
 
-		//tile.baseHeight = 128
-		//tile.baseWidht = 256
-		//tile.flipX = false
-		//tile.width = 256
-		//tile.height = 192
-		//tile.rotation = 0
-
-		if (tile.layer.name == 'large-only') {
-			//rotation
-			// console.log(tile);
-			// debugger;
-		} else if (tile.layer.name == 'medium-large') {
-			// console.log(tile);
-			// console.log(tileset);
-			// debugger;
-		}
-
 		let layerOrientation = tile.layer.orientation;
 
-		let srcX = (tile.x + 0.5) * tile.baseWidth;
-		let srcY = tile.y * tile.baseHeight * 0.5 - (tile.height * 0.5 - tile.baseHeight);
-
-		srcX = tile.pixelX + 0.5 * tile.baseWidth;
-		srcY = tile.pixelY - (tile.height * 0.5 - tile.baseHeight);
+		let srcX = tile.pixelX + 0.5 * tile.baseWidth;//(tile.x + 0.5) * tile.baseWidth;
+		let srcY = tile.pixelY - (tile.height * 0.5 - tile.baseHeight);//tile.y * tile.baseHeight * 0.5 - (tile.height * 0.5 - tile.baseHeight);
 
 		var tileWidth = tile.baseWidth;
 		var tileHeight = tile.baseHeight;
@@ -290,26 +269,17 @@ Phaser.Tilemaps.TilemapLayer.prototype.renderWebGL = function (renderer, src, ca
 
 		var tint = getTint(tile.tint, alpha * tile.alpha);
 
-		let PI = 3.14159265;
-
-
 		pipeline.batchTexture(
 			src,  //gameObject
 			texture, //texture
-
 			texture.width, texture.height,  //textureWidth, textureHeight
-
-			// x + ((tw + tile.pixelX) * sx), y + ((th + tile.pixelY) * sy),  //srcX, srcY,
-			srcX, srcY,
-
+			srcX, srcY, 	// x + ((tw + tile.pixelX) * sx), y + ((th + tile.pixelY) * sy),  //srcX, srcY,
 			tile.width, tile.height,  //    srcWidth, srcHeight,
 			sx, sy,  //scaleX, scaleY,
 			tile.rotation, //rotation
 			tile.flipX, tile.flipY,  //flipX, flipY,
 			scrollFactorX, scrollFactorY,  //scrollFactorX, scrollFactorY,
-
-			// tw, th, //displayOriginX, displayOriginY,
-			tile.width * 0.5, tile.height * 0.5,
+			tile.width * 0.5, tile.height * 0.5, 	// tw, th, //displayOriginX, displayOriginY,
 			frameX, frameY, frameWidth, frameHeight,  //     frameX, frameY, frameWidth, frameHeight,
 			tint, tint, tint, tint, false,  //tintTL, tintTR, tintBL, tintBR, tintEffect,
 			0, 0,  //uOffset, vOffset,

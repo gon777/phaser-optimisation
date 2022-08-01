@@ -15,55 +15,40 @@ class TilemapScene extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
-		// patchTestTilemap
-		const patchTestTilemap = this.add.tilemap("patchTestTilemap");
-		patchTestTilemap.addTilesetImage("medium_earth_tileset", "medium_earth_tileset");
-		patchTestTilemap.addTilesetImage("large_earth_tileset", "large_earth_tileset");
-
-		// cobblewoods
-		const cobblewoods = this.add.tilemap("Cobblewoods");
-		cobblewoods.addTilesetImage("medium_earth_tileset", "medium_earth_tileset");
-		cobblewoods.addTilesetImage("large_earth_tileset", "large_earth_tileset");
+		// cobblewoodtest
+		const cobblewoodtest = this.add.tilemap("Cobblewoodtest");
+		cobblewoodtest.addTilesetImage("medium_earth_tileset", "medium_earth_tileset");
+		cobblewoodtest.addTilesetImage("large_earth_tileset", "large_earth_tileset");
 
 		// image
 		const image = this.add.image(0, 0, "dino");
 		image.setOrigin(0.5, 1);
 
-		// medium_only_1
-		const medium_only_1 = patchTestTilemap.createLayer("medium-only", ["medium_earth_tileset"], 0, 1);
-		medium_only_1.visible = false;
-
-		// large_only_1
-		const large_only_1 = patchTestTilemap.createLayer("large-only", ["large_earth_tileset"], 0, 0);
-		large_only_1.visible = false;
-
-		// medium_large_1
-		const medium_large_1 = patchTestTilemap.createLayer("medium-large", ["medium_earth_tileset","large_earth_tileset"], 0, 0);
-		medium_large_1.visible = false;
-
 		// ground_base_1
-		cobblewoods.createLayer("ground_base", ["medium_earth_tileset"], 0, 0);
-
-		// path_1
-		cobblewoods.createLayer("path", ["medium_earth_tileset"], 0, 0);
+		cobblewoodtest.createLayer("ground_base", ["medium_earth_tileset"], 0, 0);
 
 		// elevated_ground_below_1
-		cobblewoods.createLayer("elevated_ground_below", ["medium_earth_tileset"], 0, 0);
+		cobblewoodtest.createLayer("elevated_ground_below", ["medium_earth_tileset"], 0, 0);
+
+		// path_1
+		cobblewoodtest.createLayer("path", ["medium_earth_tileset"], 0, 0);
 
 		// objects_1
-		cobblewoods.createLayer("objects", ["large_earth_tileset","medium_earth_tileset"], 0, 0);
+		cobblewoodtest.createLayer("objects", ["medium_earth_tileset","large_earth_tileset"], 0, 0);
 
 		// elevated_ground_above_1
-		cobblewoods.createLayer("elevated_ground_above", ["medium_earth_tileset"], 0, 0);
+		cobblewoodtest.createLayer("elevated_ground_above", ["medium_earth_tileset"], 0, 0);
 
 		// elevated_objects_1
-		cobblewoods.createLayer("elevated_objects", ["large_earth_tileset","medium_earth_tileset"], 0, 0);
+		cobblewoodtest.createLayer("elevated_objects", ["medium_earth_tileset","large_earth_tileset"], 0, 0);
 
-		this.patchTestTilemap = patchTestTilemap;
-		this.cobblewoods = cobblewoods;
+		this.cobblewoodtest = cobblewoodtest;
 
 		this.events.emit("scene-awake");
 	}
+
+	/** @type {Phaser.Tilemaps.Tilemap} */
+	cobblewoodtest;
 
 	/* START-USER-CODE */
 

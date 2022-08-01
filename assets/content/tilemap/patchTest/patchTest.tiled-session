@@ -3,11 +3,42 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/cobblewoods.tmj",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/cobblewoods.tmj": {
+            "scale": 0.08943359375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 3136.405328674383,
+                "y": 2409.6090849530465
+            }
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/cobblewoods.tmj#large_earth_tileset": {
+            "scaleInDock": 1
+        },
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/cobblewoods.tmj#medium_earth_tileset": {
+            "scaleInDock": 1
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/test/Cobblewoodtest.tmj": {
+            "scale": 0.25,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2598,
+                "y": 1130
+            }
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/test/Cobblewoodtest.tmj#large_earth_tileset": {
+            "scaleInDock": 1
+        },
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/test/Cobblewoodtest.tmj#medium_earth_tileset": {
+            "scaleInDock": 1
+        },
         "D:/ProjectsVersionControlled/Test/phaser-optimisation/assets/content/tilemap/cobblewood/Cobblewoods.tmj": {
             "scale": 0.09704101562499999,
             "selectedLayer": 0,
@@ -47,9 +78,12 @@
     "map.lastUsedFormat": "tmx",
     "map.orientation": null,
     "openFiles": [
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/cobblewoods.tmj"
     ],
     "project": "patchTest.tiled-project",
     "recentFiles": [
+        "/Users/gordon/Work/GitProjects/norby-world/assets/content/global/rooms/cobblewoods/cobblewoods.tmj",
+        "/Users/gordon/Work/GitProjects/phaser-optimisation/assets/content/tilemap/test/Cobblewoodtest.tmj",
         "patchTestTilemap.tmj"
     ],
     "tileset.embedInMap": true,

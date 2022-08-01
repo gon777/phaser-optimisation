@@ -2,9 +2,9 @@
     "section1": {
         "files": [
             {
-                "url": "assets/content/tilemap/cobblewood/Cobblewoods.tmj",
+                "url": "assets/content/tilemap/test/Cobblewoodtest.tmj",
                 "type": "tilemapTiledJSON",
-                "key": "Cobblewoods"
+                "key": "Cobblewoodtest"
             },
             {
                 "url": "assets/content/dino.png",
@@ -12,35 +12,30 @@
                 "type": "image"
             },
             {
-                "url": "assets/content/tilemap/cobblewood/large_earth_tileset.png",
+                "url": "assets/content/tilemap/large_earth_tileset.png",
                 "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
+                    "frameWidth": 256,
+                    "frameHeight": 330,
                     "startFrame": 0,
                     "endFrame": -1,
-                    "spacing": 0,
+                    "spacing": 4,
                     "margin": 0
                 },
                 "type": "spritesheet",
                 "key": "large_earth_tileset"
             },
             {
-                "url": "assets/content/tilemap/cobblewood/medium_earth_tileset.png",
+                "url": "assets/content/tilemap/medium_earth_tileset.png",
                 "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
+                    "frameWidth": 256,
+                    "frameHeight": 192,
                     "startFrame": 0,
                     "endFrame": -1,
-                    "spacing": 0,
+                    "spacing": 4,
                     "margin": 0
                 },
                 "type": "spritesheet",
                 "key": "medium_earth_tileset"
-            },
-            {
-                "url": "assets/content/tilemap/patchTest/patchTestTilemap.tmj",
-                "type": "tilemapTiledJSON",
-                "key": "patchTestTilemap"
             }
         ]
     },
